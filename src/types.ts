@@ -1,3 +1,5 @@
+//createdAt: new Date().toISOString()
+
 export type TUsers = {
     id: string,
     name: string,
@@ -13,3 +15,4 @@ export type TProducts = {
     description: string,
     imageUrl: string
 }
+

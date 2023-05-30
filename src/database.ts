@@ -37,3 +37,23 @@ export const products: TProducts[] = [
     }
 
 ]
+
+export function createUser(id: string, name: string, email: string, password: string) {
+    const newUser: TUsers =
+    {
+        id: id,
+        name: name,
+        email: email,
+        password: password,
+        createdAt: new Date().toISOString()
+    }
+
+
+    users.push(newUser);
+    return "Cadastro realizado com sucesso!"
+
+}
+
+export function getAllUsers(): TUsers[]{
+    return users
+}
