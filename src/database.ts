@@ -2,7 +2,7 @@ import { TUsers, TProducts } from "./types";
 
 export const users: TUsers[] = [
     {
-        id: "001",
+        id: "user001",
         name: "Fulano",
         email: "fulano@email.com",
         password: "fulano123",
@@ -10,7 +10,7 @@ export const users: TUsers[] = [
     },
 
     {
-        id: "002",
+        id: "user002",
         name: "Beltrana",
         email: "beltrana@email.com",
         password: "beltrana00",
@@ -35,6 +35,7 @@ export const products: TProducts[] = [
         description: "Monitor LED Full HD 24 polegadas.",
         imageUrl: "https://picsum.photos/seed/Monitor/400"
     }
+    
 
 ]
 
