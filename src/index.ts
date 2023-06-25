@@ -365,3 +365,4 @@ app.put("/products/:id", (req: Request, res: Response) => {
 
 
 //documentacao: https://documenter.getpostman.com/view/26570634/2s93z6e4CJ
+//tabelas criadas. ultima aula; aprofundamento SQL
