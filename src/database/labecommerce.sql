@@ -35,3 +35,39 @@ price = 100,
 description = 'Melhor mouse óptico do mercado!',
 image_url = 'https://picsum.photos/200/300'
 WHERE id = 'prod003';
+
+CREATE TABLE purchases (
+    id TEXT PRIMARY KEY UNIQUE NOT NULL,
+    buyer TEXT NOT NULL,
+    total_price REAL NOT NULL,
+    created_at TEXT NOT NULL DEFAULT(DATETIME()),
+    FOREIGN KEY(buyer) REFERENCES users(id)
+);
+
+INSERT INTO purchases(id, buyer, total_price)
+VALUES 
+    ('pur001', 'user003', 3000),
+    ('pur002', 'user001', 1000);
+
+
+UPDATE purchases
+SET
+    total_price = 900
+WHERE id = 'pur002';
+
+SELECT 
+    purchases.id AS purchaseId,
+    users.id AS buyerId, 
+    users.name AS buyerName,
+    email,
+    total_price AS totalPrice,
+    purchases.created_at AS boughtAt
+    
+FROM users
+INNER JOIN purchases;
+
+
+
+
+
+
