@@ -107,6 +107,9 @@ VALUES
     ('pur001', 'prod001', 1),
     ('pur002', 'prod002', 1);
 
+--Introdução ao Knex
+
+
 
 
 
