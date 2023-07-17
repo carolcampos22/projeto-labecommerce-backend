@@ -5,27 +5,17 @@ import cors from 'cors'
 import { TProducts, TUsers } from './types';
 import { db } from './database/knex';
 
-const app = express() //criação do servidor express 
+const app = express() 
 
-//configuração do middleware que garante que nossas respostas estejam sempre no formato json //import do CORS 👇🏽
 app.use(express.json());
 
-//configuração do middleware que habilita o CORS 👇🏽
+
 app.use(cors());
 
-//colocando nosso servidor para escutar a porta 3003 da nossa máquina (primeiro 
-//parâmetro da função listen)
-//a função de callback (segundo parâmetro da função listen) serve para sabermos 
-//que o servidor está de pé, através do console.log que imprimirá a mensagem no 
-//terminal 👇🏽
 
 app.listen(3003, () => {
     console.log("Servidor rodando na porta 3003");
 });
-
-app.get('/ping', (req: Request, res: Response) => {
-    res.send('Pong!')
-})
 
 app.get('/users', async (req: Request, res: Response) => {
     try {
@@ -70,7 +60,7 @@ app.get('/products/search', async (req: Request, res: Response) => {
         }
 
     }
-}) //ok
+})
 
 app.post('/products', async (req: Request, res: Response) => {
     try {
@@ -153,7 +143,7 @@ app.post('/products', async (req: Request, res: Response) => {
         }
     }
 }
-) //ok
+)
 
 app.post('/users', async (req: Request, res: Response) => {
     try {
@@ -239,7 +229,7 @@ app.post('/users', async (req: Request, res: Response) => {
             res.send("Unexpected error")
         }
     }
-}) //ok
+})
 
 
 app.delete("/users/:id", async (req: Request, res: Response) => {
@@ -263,7 +253,7 @@ app.delete("/users/:id", async (req: Request, res: Response) => {
             res.send("Unexpected error")
         }
     }
-}) //ok
+})
 
 app.delete("/products/:id", async (req: Request, res: Response) => {
     try {
@@ -285,7 +275,7 @@ app.delete("/products/:id", async (req: Request, res: Response) => {
             res.send("Unexpected error")
         }
     }
-}) //ok
+})
 
 
 app.put("/products/:id", async (req: Request, res: Response) => {
@@ -349,7 +339,7 @@ app.put("/products/:id", async (req: Request, res: Response) => {
             res.send("Unexpected error")
         }
     }
-}) //ok
+})
 
 app.post('/purchases', async (req: Request, res: Response) => {
     try {
@@ -494,7 +484,7 @@ app.get('/purchases/:id', async (req: Request, res: Response) => {
     console.table(result)
     res.status(200).send(result)
 
-}) //ok
+})
 
 app.delete('/purchases/:id', async (req: Request, res: Response) => {
     try {
@@ -516,7 +506,4 @@ app.delete('/purchases/:id', async (req: Request, res: Response) => {
             res.send("Unexpected error")
         }
     }
-}) //ok
-
-
-//documentacao: https://documenter.getpostman.com/view/26570634/2s93z6e4CJ
+}) 
