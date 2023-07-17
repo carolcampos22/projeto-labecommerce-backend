@@ -1,4 +1,4 @@
--- Active: 1687656101633@@127.0.0.1@3306
+-- Active: 1689609354978@@127.0.0.1@3306
 
 CREATE TABLE users(
     id TEXT PRIMARY KEY UNIQUE NOT NULL,
@@ -33,8 +33,6 @@ VALUES
     ('user003', 'Thor', 'for-asgard@gmail.com', 'playboyzinho'),
     ('user004', 'Bruce Banner', 'green-banner@gmail.com', 'vingadormaisforte');
 
-SELECT * FROM products;
---create product
 INSERT INTO products (id, name, price, description, image_url)
 VALUES 
     ('prod001', 'Smart Phone', 3000, 'Smartphone de última geração', 'https://picsum.photos/200/300' ),
@@ -60,7 +58,7 @@ image_url = 'https://picsum.photos/200/300'
 WHERE id = 'prod003';
 
 CREATE TABLE purchases (
-    id TEXT PRIMARY KEY UNIQUE NOT NULL,
+    id TEXT PRIMARY KEY NOT NULL,
     buyer TEXT NOT NULL,
     total_price REAL NOT NULL,
     created_at TEXT NOT NULL DEFAULT(DATETIME()),
@@ -95,7 +93,9 @@ CREATE TABLE  purchases_products (
     purchase_id TEXT NOT NULL,
     product_id TEXT NOT NULL,
     quantity INTEGER NOT NULL,
-    FOREIGN KEY(purchase_id) REFERENCES purchases(id),
+    FOREIGN KEY(purchase_id) REFERENCES purchases(id)
+        ON UPDATE CASCADE
+		ON DELETE CASCADE
     FOREIGN KEY(product_id) REFERENCES products(id)
         ON UPDATE CASCADE
 		ON DELETE CASCADE
@@ -107,9 +107,17 @@ VALUES
     ('pur001', 'prod001', 1),
     ('pur002', 'prod002', 1);
 
---Introdução ao Knex
-
-
-
-
+SELECT 
+  purchases.id AS purchaseId,
+  purchases.buyer,
+  purchases.total_price AS TotalPrice,
+  purchases.created_at AS createdAt,
+  users.name AS nameUser,
+  purchases_products.product_id AS productId,
+  products.name AS productName,
+  purchases_products.quantity
+  from purchases_products
+  INNER JOIN purchases ON purchases.id = purchases_products.purchase_id
+  INNER JOIN products ON products.id = purchases_products.product_id
+  INNER JOIN users ON purchases.buyer = users.id; 
 
