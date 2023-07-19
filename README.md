@@ -271,5 +271,5 @@ https://documenter.getpostman.com/view/26570634/2s93z6e4CJ
 
 <h3>Carolina M. Campos</h3>
 
-LinkedIn: https://www.linkedin.com/in/carolcampos22
+LinkedIn: https://www.linkedin.com/in/dev-carolina-mendes/
 
