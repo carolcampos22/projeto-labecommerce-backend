@@ -255,7 +255,6 @@ yarn start
 - Node.js
 - TypeScript
 - Node Express
-- SQL
 - SQLite
 - Knex.js
 
