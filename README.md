@@ -265,7 +265,8 @@ yarn start
 
 https://documenter.getpostman.com/view/26570634/2s93z6e4CJ
 
-
+## Próximos passos
+- Carrinho de compras
 
 ## Pessoas autoras
 
